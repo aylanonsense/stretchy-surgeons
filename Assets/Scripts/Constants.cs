@@ -5,6 +5,6 @@ using UnityEngine;
 namespace StretchySurgeon {
     public static class Constants
     {
-        public static float TILE_SIZE = 0.5f;
+        public static float TILE_SIZE = 1f;
     }
 }

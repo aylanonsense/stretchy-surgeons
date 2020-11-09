@@ -13,18 +13,20 @@ namespace StretchySurgeon {
 		}
 
 		void Update() {
-			if (Input.GetKeyDown(KeyCode.W)) {
+			if (Input.GetKeyDown(KeyCode.W))
 				arm.Move(Direction.North);
-			}
-			if (Input.GetKeyDown(KeyCode.A)) {
+
+			if (Input.GetKeyDown(KeyCode.A))
 				arm.Move(Direction.West);
-			}
-			if (Input.GetKeyDown(KeyCode.S)) {
+
+			if (Input.GetKeyDown(KeyCode.S))
 				arm.Move(Direction.South);
-			}
-			if (Input.GetKeyDown(KeyCode.D)) {
+
+			if (Input.GetKeyDown(KeyCode.D))
 				arm.Move(Direction.East);
-			}
+
+			if (Input.GetKeyDown(KeyCode.Backspace))
+				arm.Retract();
 		}
 	}
 }

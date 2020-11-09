@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace StretchySurgeon {
-	public class Arm : MonoBehaviour
+	public class Arm : Entity
 	{
 		[Header("Children")]
 		public GameObject hand;
@@ -41,11 +42,22 @@ namespace StretchySurgeon {
 			}
 			// Move the hand and add a new arm segment behind it
 			else {
-				CreateArmSegment(handTile, handDirection, direction);
-				handTile += DirectionUtils.DirectionToVector(direction);
-				handDirection = direction;
-				UpdateHandSprite();
+				Vector2Int nextTile = handTile + DirectionUtils.DirectionToVector(direction);
+				if (!grid.IsTileOccupied(nextTile)) {
+					CreateArmSegment(handTile, handDirection, direction);
+					handTile = nextTile;
+					handDirection = direction;
+					UpdateHandSprite();
+				}
 			}
+		}
+
+		public void Retract() {
+			Move(DirectionUtils.GetOppositeDirection(handDirection));
+		}
+
+		public override bool IsOccupyingTile(Vector2Int tile) {
+			return handTile == tile || armSegments.Any(armSegment => armSegment.tile == tile);
 		}
 
 		private void UpdateHandSprite() {

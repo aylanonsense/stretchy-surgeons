@@ -17,21 +17,10 @@ namespace StretchySurgeon {
 		private Vector2Int handTile;
 		private Direction handDirection;
 
-		private float randomWalkTimer = 0;
-
 		void Start() {
 			handTile = new Vector2Int(0, 0);
 			handDirection = Direction.East;
 			UpdateHandSprite();
-		}
-
-		void Update() {
-			// Random walk for debug purposes at first
-			randomWalkTimer += Time.deltaTime;
-			if (randomWalkTimer >= 0.5f) {
-				randomWalkTimer = 0;
-				Move(DirectionUtils.GetRandomDirection());
-			}
 		}
 
 		public void Move(Direction direction) {

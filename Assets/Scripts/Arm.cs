@@ -17,12 +17,14 @@ namespace StretchySurgeon {
 
 		private Vector2Int handTile;
 		private Direction handDirection;
+		private Material material;
 		private List<ArmSegment> armSegments;
 
 		void Start() {
 			handTile = new Vector2Int(0, 0);
 			handDirection = Direction.East;
 			armSegments = new List<ArmSegment>();
+			material = hand.GetComponent<SpriteRenderer>().material;
 			UpdateHandSprite();
 		}
 
@@ -84,6 +86,7 @@ namespace StretchySurgeon {
 			arm.transform.position = new Vector3(tile.x * Constants.TILE_SIZE, tile.y * Constants.TILE_SIZE, arm.transform.position.z);
 			arm.transform.eulerAngles = new Vector3(0, 0, rotation);
 			renderer.sprite = sprite;
+			renderer.material = material;
 			// Add it as a child
 			arm.transform.parent = transform;
 			// Keep track of the arm segments in a list

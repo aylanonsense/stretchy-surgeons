@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TwoColorReplaceMaterial
+  m_Shader: {fileID: -6465566751694194690, guid: 5337d0657785944419615d0212b9e305,
+    type: 3}
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - Color_149B74C7: {r: 0.91764706, g: 0.5529412, b: 0.023529412, a: 0}
+    - Color_26E4E3E4: {r: 0.83137256, g: 0.39215687, b: 0, a: 0}
+    - Color_3313321D: {r: 1, g: 0, b: 1, a: 0}
+    - Color_98BBE8CA: {r: 0.8, g: 0, b: 0.8, a: 0}

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace StretchySurgeon {
+namespace StretchySurgeons {
 	public abstract class Entity : MonoBehaviour
 	{
 		public TileGrid grid;

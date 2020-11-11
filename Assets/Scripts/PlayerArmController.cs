@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace StretchySurgeon {
+namespace StretchySurgeons {
 	[RequireComponent(typeof(Arm))]
 	public class PlayerArmController : MonoBehaviour
 	{

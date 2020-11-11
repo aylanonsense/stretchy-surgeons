@@ -1,4 +1,4 @@
-﻿namespace StretchySurgeon {
+﻿namespace StretchySurgeons {
 	public enum Direction {
 		None,
 		North,

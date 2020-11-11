@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace StretchySurgeon {
+namespace StretchySurgeons {
     public class Target : Entity
     {
 		private Vector2Int targetTile;

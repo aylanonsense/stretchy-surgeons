@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace StretchySurgeon {
+namespace StretchySurgeons {
 	// Miscellaneous helper functions for working with Directions
 	public static class DirectionUtils
 	{

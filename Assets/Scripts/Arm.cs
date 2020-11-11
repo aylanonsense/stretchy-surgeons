@@ -15,13 +15,16 @@ namespace StretchySurgeon {
 		public Sprite handThumbUpSprite;
 		public Sprite handThumbDownSprite;
 
+		[Header("Start Location")]
+		public Vector2Int startLocation;
+
 		private Vector2Int handTile;
 		private Direction handDirection;
 		private Material material;
 		private List<ArmSegment> armSegments;
 
 		void Start() {
-			handTile = new Vector2Int(0, 0);
+			handTile = startLocation;
 			handDirection = Direction.East;
 			armSegments = new List<ArmSegment>();
 			material = hand.GetComponent<SpriteRenderer>().material;

@@ -11,14 +11,17 @@ namespace StretchySurgeons {
 
 		public virtual void Despawn() {}
 
-		public virtual void Refresh() {
+		public virtual void RefreshGraphics() {
 			transform.position = new Vector3(grid.transform.position.x + tile.column * Constants.TILE_SIZE, grid.transform.position.y + tile.row * Constants.TILE_SIZE, grid.transform.position.z + transform.position.z);
 		}
 
 		public void MoveToTile(Tile tile) {
+			Tile prevTile = tile;
 			this.tile.RemoveOccupant(this);
 			tile.AddOccupant(this);
-			Refresh();
+			grid.OnEntityMove?.Invoke(this, prevTile, tile);
+			grid.OnAnyChange?.Invoke();
+			RefreshGraphics();
 		}
 
 		public void MoveToTile(TileCoords coords) {

@@ -10,8 +10,10 @@ namespace StretchySurgeons {
 		public int columns = 10;
 		public int rows = 10;
 
-		public Action<TileEntity> OnEntitySpawned;
-		public Action<TileEntity> OnEntityDespawned;
+		public Action OnAnyChange;
+		public Action<TileEntity> OnEntitySpawn;
+		public Action<TileEntity, Tile, Tile> OnEntityMove;
+		public Action<TileEntity> OnEntityDespawn;
 
 		private Tile[,] tiles;
 		private List<TileEntity> entities;
@@ -33,9 +35,10 @@ namespace StretchySurgeons {
 		public TileEntity SpawnEntity(TileEntity entity, Tile tile) {
 			entities.Add(entity);
 			tile.AddOccupant(entity);
-			entity.Refresh();
+			entity.RefreshGraphics();
 			entity.Spawn();
-			OnEntitySpawned?.Invoke(entity);
+			OnEntitySpawn?.Invoke(entity);
+			OnAnyChange?.Invoke();
 			return entity;
 		}
 
@@ -58,7 +61,8 @@ namespace StretchySurgeons {
 			if (entity.tile != null)
 				entity.tile.RemoveOccupant(entity);
 			entity.Despawn();
-			OnEntityDespawned?.Invoke(entity);
+			OnEntityDespawn?.Invoke(entity);
+			OnAnyChange?.Invoke();
 			Destroy(entity.gameObject);
 		}
 

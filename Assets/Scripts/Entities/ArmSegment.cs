@@ -8,7 +8,10 @@ namespace StretchySurgeons {
 		[Header("Params")]
 		public Direction directionIn;
 		public Direction directionOut;
-		public Material material;
+		public Material material {
+			get { return sprite.material; }
+			set { sprite.material = value; }
+		}
 
 		[Header("Children")]
 		[SerializeField] private SpriteRenderer sprite;
@@ -17,8 +20,8 @@ namespace StretchySurgeons {
 		[SerializeField] private Sprite straightArmSprite;
 		[SerializeField] private Sprite cornerArmSprite;
 
-		public override void Refresh() {
-			base.Refresh();
+		public override void RefreshGraphics() {
+			base.RefreshGraphics();
 			float rotation;
 			if (directionIn == DirectionUtils.GetOppositeDirection(directionOut)) {
 				sprite.sprite = straightArmSprite;
@@ -29,7 +32,6 @@ namespace StretchySurgeons {
 				rotation = DirectionUtils.DirectionToDegreesRotation((directionIn == DirectionUtils.GetClockwiseDirection(directionOut)) ? directionIn : directionOut);
 			}
 			transform.eulerAngles = new Vector3(0, 0, rotation);
-			sprite.material = material;
 		}
 	}
 }

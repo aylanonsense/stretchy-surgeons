@@ -4,9 +4,10 @@ using System.Linq;
 using UnityEngine;
 
 namespace StretchySurgeons {
-    public class Target : Entity
+    public class Target // : Entity
     {
-		private Vector2Int targetTile;
+		    /*
+    private Vector2Int targetTile;
 
         void Start(){
             //TODO: set size as a grid prop
@@ -30,6 +31,7 @@ namespace StretchySurgeons {
         public override bool IsOccupyingTile(Vector2Int tile) {
 			return false;
 		}
+      */
 
     }
 

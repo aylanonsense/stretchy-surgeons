@@ -1,10 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace StretchySurgeons {
-    public static class Constants
-    {
-        public static float TILE_SIZE = 1f;
-    }
+﻿namespace StretchySurgeons {
+	public static class Constants
+	{
+		public static float TILE_SIZE = 1f;
+	}
 }

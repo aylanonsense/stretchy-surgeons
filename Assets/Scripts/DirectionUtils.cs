@@ -4,6 +4,8 @@ namespace StretchySurgeons {
 	// Miscellaneous helper functions for working with Directions
 	public static class DirectionUtils
 	{
+		public static Direction[] allDirections = new Direction[] { Direction.North, Direction.East, Direction.South, Direction.West };
+
 		public static Direction GetOppositeDirection(Direction direction) {
 			switch (direction) {
 				case Direction.North:
@@ -46,6 +48,28 @@ namespace StretchySurgeons {
 					return Direction.South;
 				default:
 					return Direction.None;
+			}
+		}
+
+		public static Direction FlipDirectionHorizontally(Direction direction) {
+			switch (direction) {
+				case Direction.East:
+					return Direction.West;
+				case Direction.West:
+					return Direction.East;
+				default:
+					return direction;
+			}
+		}
+
+		public static Direction FlipDirectionVertically(Direction direction) {
+			switch (direction) {
+				case Direction.North:
+					return Direction.South;
+				case Direction.South:
+					return Direction.North;
+				default:
+					return direction;
 			}
 		}
 

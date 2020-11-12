@@ -6,7 +6,7 @@ namespace StretchySurgeons {
 	[RequireComponent(typeof(Arm))]
 	public class PlayerArmController : MonoBehaviour
 	{
-		public enum SchemeList{WASD, Arrows};
+		public enum SchemeList { WASD, Arrows };
 		public SchemeList controlScheme;
 
 		private Arm arm;
@@ -16,7 +16,7 @@ namespace StretchySurgeons {
 		}
 
 		void Update() {
-			if(controlScheme==SchemeList.WASD) {
+			if (controlScheme == SchemeList.WASD) {
 				if (Input.GetKeyDown(KeyCode.W))
 					arm.Move(Direction.North);
 

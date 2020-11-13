@@ -1,53 +1,39 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using StretchySurgeons.Input;
 
 namespace StretchySurgeons {
 	[RequireComponent(typeof(Arm))]
 	public class PlayerArmController : MonoBehaviour
 	{
-		public enum SchemeList { WASD, Arrows };
-		public SchemeList controlScheme;
-
 		private Arm arm;
+		public PlayerNum player;
+		private PlayerControls controls;
 
-		void Start() {
+		void Awake() {
 			arm = GetComponent<Arm>();
+			controls = GameManager.instance.inputManager.GetPlayerControls(player);
 		}
 
-		void Update() {
-			if (controlScheme == SchemeList.WASD) {
-				if (Input.GetKeyDown(KeyCode.W))
-					arm.Move(Direction.North);
-
-				if (Input.GetKeyDown(KeyCode.A))
-					arm.Move(Direction.West);
-
-				if (Input.GetKeyDown(KeyCode.S))
-					arm.Move(Direction.South);
-
-				if (Input.GetKeyDown(KeyCode.D))
-					arm.Move(Direction.East);
-
-				if (Input.GetKeyDown(KeyCode.X))
-					arm.Retract();
+		void OnEnable() {
+			if (controls != null) {
+				controls.OnPressedDirection += Move;
+				controls.OnPressedCancel += Retract;
 			}
-			else {
-				if (Input.GetKeyDown(KeyCode.UpArrow))
-					arm.Move(Direction.North);
+		}
 
-				if (Input.GetKeyDown(KeyCode.LeftArrow))
-					arm.Move(Direction.West);
-
-				if (Input.GetKeyDown(KeyCode.DownArrow))
-					arm.Move(Direction.South);
-
-				if (Input.GetKeyDown(KeyCode.RightArrow))
-					arm.Move(Direction.East);
-
-				if (Input.GetKeyDown(KeyCode.RightAlt))
-					arm.Retract();
+		void OnDisable() {
+			if (controls != null) {
+				controls.OnPressedDirection -= Move;
+				controls.OnPressedCancel += Retract;
 			}
+		}
+
+		private void Move(Direction direction) {
+			arm.Move(direction);
+		}
+
+		private void Retract() {
+			arm.Retract();
 		}
 	}
 }

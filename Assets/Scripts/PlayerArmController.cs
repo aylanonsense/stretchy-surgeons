@@ -11,7 +11,7 @@ namespace StretchySurgeons {
 
 		void Awake() {
 			arm = GetComponent<Arm>();
-			controls = GameManager.instance.inputManager.GetPlayerControls(player);
+			controls = GameManager.I.inputManager.GetPlayerControls(player);
 		}
 
 		void OnEnable() {

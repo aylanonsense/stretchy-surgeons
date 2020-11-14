@@ -4,7 +4,7 @@ using StretchySurgeons.Input;
 namespace StretchySurgeons {
 	public class GameManager : MonoBehaviour
 	{
-		public static GameManager instance {
+		public static GameManager I {
 			get {
 				if (_instance == null) {
 					GameObject gameObject = new GameObject("Game Manager");

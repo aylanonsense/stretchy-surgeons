@@ -23,6 +23,7 @@ namespace StretchySurgeons {
 					hand.direction = DirectionUtils.GetOppositeDirection(armSegment.directionIn);
 					hand.MoveToTile(armSegment.tile);
 					grid.DespawnEntity(armSegment);
+					hand.animateSquash();
 				}
 			}
 			else if (hand.CanMoveInDirection(direction)) {
@@ -37,6 +38,10 @@ namespace StretchySurgeons {
 				armSegment.material = hand.material;
 				armSegments.Add(armSegment);
 				grid.SpawnEntity(armSegment, tile);
+				hand.animateStretch();
+			}
+			else {
+				hand.animateSquash();
 			}
 		}
 

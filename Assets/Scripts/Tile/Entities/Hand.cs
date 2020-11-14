@@ -19,6 +19,7 @@ namespace StretchySurgeons {
 		[Header("Assets")]
 		[SerializeField] private Sprite thumbUpHandSprite;
 		[SerializeField] private Sprite thumbDownHandSprite;
+		[SerializeField] private Animator animator;
 
 		public override void Spawn() {
 			base.Spawn();
@@ -41,6 +42,14 @@ namespace StretchySurgeons {
 			base.RefreshGraphics();
 			CheckForThumbChange();
 			transform.eulerAngles = new Vector3(0, isRightHand ? 0 : 180, DirectionUtils.DirectionToDegreesRotation(isRightHand ? direction : DirectionUtils.FlipDirectionHorizontally(direction)));
+		}
+
+		public void animateSquash(){
+			animator.Play("HandSquash", -1, 0f);
+		}
+
+		public void animateStretch(){
+			animator.Play("HandStretch", -1, 0f);
 		}
 	}
 }

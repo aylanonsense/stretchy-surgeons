@@ -9,11 +9,13 @@ namespace StretchySurgeons {
 		[Header("Children")]
 		[SerializeField] private Hand hand;
 		[SerializeField] private List<ArmSegment> armSegments;
+		[SerializeField] private TileGrid interiorGrid;
 
 		[Header("Assets")]
 		[SerializeField] private ArmSegment armSegmentPrefab;
 
-		private TileGrid grid => hand.grid;
+		private TileGrid exteriorGrid => hand.grid;
+		[SerializeField] private TileGrid grid;
 
 		public void Move(Direction direction) {
 			if (direction == DirectionUtils.GetOppositeDirection(hand.direction)) {
@@ -31,6 +33,7 @@ namespace StretchySurgeons {
 				hand.direction = direction;
 				hand.MoveInDirection(direction);
 				ArmSegment armSegment = Instantiate(armSegmentPrefab, new Vector3(), Quaternion.identity);
+				armSegment.grid = grid;
 				armSegment.transform.parent = transform;
 				armSegment.directionIn = DirectionUtils.GetOppositeDirection(prevDirection);
 				armSegment.directionOut = direction;
@@ -42,6 +45,26 @@ namespace StretchySurgeons {
 
 		public void Retract() {
 			Move(DirectionUtils.GetOppositeDirection(hand.direction));
+		}
+
+		public void EnterBody() {
+			Direction prevDirection = hand.direction;
+			Tile tile = hand.tile;
+			hand.direction = Direction.East;
+
+			Tile interiorTile = interiorGrid.GetTile(0,0);
+			hand.MoveToTile(interiorTile);
+			hand.grid = interiorGrid;
+
+			ArmSegment armSegment = Instantiate(armSegmentPrefab, new Vector3(), Quaternion.identity);
+			armSegment.grid = exteriorGrid;
+			armSegment.transform.parent = transform;
+			armSegment.directionIn = DirectionUtils.GetOppositeDirection(prevDirection);
+			armSegment.directionOut = prevDirection;
+			armSegment.material = hand.material;
+			armSegments.Add(armSegment);
+			grid.SpawnEntity(armSegment, tile);
+			grid = interiorGrid;
 		}
 	}
 }

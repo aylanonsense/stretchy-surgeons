@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.35872698, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -375,6 +375,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4655979619513187438, guid: 4cbd0df98bdb57e4db0d8fbb0c1f5a8c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4655979619513187438, guid: 4cbd0df98bdb57e4db0d8fbb0c1f5a8c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6825425571561111752, guid: 4cbd0df98bdb57e4db0d8fbb0c1f5a8c,
+        type: 3}
+      propertyPath: interiorGrid
+      value: 
+      objectReference: {fileID: 1639987734}
+    - target: {fileID: 6825425571561111752, guid: 4cbd0df98bdb57e4db0d8fbb0c1f5a8c,
+        type: 3}
+      propertyPath: grid
+      value: 
+      objectReference: {fileID: 1896614044}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cbd0df98bdb57e4db0d8fbb0c1f5a8c, type: 3}
 --- !u!4 &977524630 stripped
@@ -390,6 +410,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1896614043}
     m_Modifications:
+    - target: {fileID: 421507570694468506, guid: acdb33dbb2fe4eb488589b779aec9b3b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 421507570694468506, guid: acdb33dbb2fe4eb488589b779aec9b3b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016744329492533052, guid: acdb33dbb2fe4eb488589b779aec9b3b,
+        type: 3}
+      propertyPath: interiorGrid
+      value: 
+      objectReference: {fileID: 1990718654}
+    - target: {fileID: 2016744329492533052, guid: acdb33dbb2fe4eb488589b779aec9b3b,
+        type: 3}
+      propertyPath: grid
+      value: 
+      objectReference: {fileID: 1896614044}
     - target: {fileID: 8285432183807100459, guid: acdb33dbb2fe4eb488589b779aec9b3b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -458,6 +498,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1207381794}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1639987734 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9000291000816778360, guid: 4cbd0df98bdb57e4db0d8fbb0c1f5a8c,
+    type: 3}
+  m_PrefabInstance: {fileID: 977524629}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dfd8bee25757414eaaef6256fac1c6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1896614042
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,7 +521,7 @@ GameObject:
   - component: {fileID: 1896614043}
   - component: {fileID: 1896614044}
   m_Layer: 0
-  m_Name: Tile Grid
+  m_Name: Exterior Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -505,3 +557,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   columns: 10
   rows: 10
+--- !u!114 &1990718654 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4153258765220524940, guid: acdb33dbb2fe4eb488589b779aec9b3b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1207381794}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dfd8bee25757414eaaef6256fac1c6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

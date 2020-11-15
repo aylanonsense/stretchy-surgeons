@@ -6,8 +6,11 @@ namespace StretchySurgeons {
 	public abstract class TileEntity : MonoBehaviour
 	{
 		public Tile tile;
-		public TileGrid grid => tile.grid;
-		public virtual void Spawn() {}
+		public TileGrid grid;
+
+		public virtual void Spawn() {
+			grid = tile.grid;
+		}
 
 		public virtual void Despawn() {}
 
@@ -16,7 +19,7 @@ namespace StretchySurgeons {
 		}
 
 		public void MoveToTile(Tile tile) {
-			Tile prevTile = tile;
+			Tile prevTile = this.tile;
 			this.tile.RemoveOccupant(this);
 			tile.AddOccupant(this);
 			grid.OnEntityMove?.Invoke(this, prevTile, tile);

@@ -31,6 +31,9 @@ namespace StretchySurgeons {
 
 				if (Input.GetKeyDown(KeyCode.X))
 					arm.Retract();
+
+				if (Input.GetKeyDown(KeyCode.E))
+					arm.EnterBody();
 			}
 			else {
 				if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -47,6 +50,9 @@ namespace StretchySurgeons {
 
 				if (Input.GetKeyDown(KeyCode.RightAlt))
 					arm.Retract();
+
+				if (Input.GetKeyDown(KeyCode.Question))
+					arm.EnterBody();
 			}
 		}
 	}
